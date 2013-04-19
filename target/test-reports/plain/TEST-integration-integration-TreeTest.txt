@@ -1,0 +1,7 @@
+Testsuite: TreeTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.033 sec
+------------- Standard Error -----------------
+--Output from testGetAllCategories--
+------------- ---------------- ---------------
+
+Testcase: testGetAllCategories took 0.996 sec

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tranSMART</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.css"/>
+<link rel="stylesheet" href="../ss/theme.css"/>
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-responsive.css"/>
+<link rel="stylesheet" href="../js/datatables/media/css/DT_bootstrap.css"/>
+
+<!--  JS SCRIPT --------------------------------------------------------------------------------------------------------------------------->
+<script type="text/javascript" src="../js/bootstrap/bootstrap.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/datatables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../js/datatables/media/js/DT_bootstrap.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Concept Type', ''],
+          ['Kegg Pathways',     11],
+          ['BioCarta',      2],
+          ['Go Biological Process',  7],
+          ['MeSH', 5],
+          ['Drug Targets',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          'legend': 'bottom',
+          'is3D':true,
+  		  'width':365,
+          'height':400,
+          chartArea:{left:5,top:0,width:"75%",height:"75%"}
+         
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+</head>
+
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">tranSMART</a>
+				<div class="nav-collapse collapse">
+					<p class="navbar-text pull-right">
+						Logged in as <a href="#" class="navbar-link">Vasu Mahavisno</a>
+					</p>
+					<ul class="nav">
+						<li><a href="index.html">Search</a></li>
+						<li><a href="dataset.jsp">Dataset Explorer</a></li>
+						<li class="active"><a href="concepts.jsp">Concept Explorer</a></li>
+						<li><a href="genesignature.jsp">Gene Signature/Lists</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+
+
+<div class="row-fluid">
+   <div class="span4"><div id="chart_div"></div></div>
+   <div class="span6 offset2">
+   <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+	<thead>
+		<tr>
+			<th>Gene Symbol</th>
+			<th>Gene Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="gradeX">
+			<td>APC</td>
+			<td>Adenomatous polyposis coli protein</td>
+		</tr>
+		<tr class="gradeX">
+			<td>ASPM</td>
+			<td>Abnormal spindle-like microcephaly-associated protein</td>
+		</tr>
+		<tr class="gradeX">
+			<td>BRCA1</td>
+			<td>Breast cancer 1, early onset</td>
+		</tr>
+		<tr class="gradeX">
+			<td>CREBBP</td>
+			<td>CREB binding protein</td>
+		</tr>
+		<tr class="gradeX">
+			<td>DHFR</td>
+			<td>Dihydrofolate reductase</td>
+		</tr>
+		<tr class="gradeX">
+			<td>PGL2</td>
+			<td>Paraganglioma or familial glomus tumors 2</td>
+		</tr>
+		<tr class="gradeX">
+			<td>PHF8</td>
+			<td>PHD finger protein 8</td>
+		</tr>
+		<tr class="gradeX">
+			<td>SDHB</td>
+			<td>Succinate dehydrogenase complex subunit B</td>
+		</tr>
+		<tr class="gradeX">
+			<td>TSC1</td>
+			<td>Hamartin</td>
+		</tr>
+	</tbody>
+   </table>
+   </div>     
+</div>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+	<thead>
+		<tr>
+			<th>Concepts</th>
+			<th>Concept Type</th>
+			<th>P-Value</th>
+			<th>Q-Value</th>	
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="gradeX">
+			<td>Bile secretion</td>
+			<td>Kegg Pathway</td>
+			<td class="center">0.00212</td>
+			<td class="center">0.01313</td>
+		</tr>
+		<tr class="gradeA">
+			<td>Biological adhesion</td>
+			<td>Go Biological Process</td>
+			<td class="center">0.00352</td>
+			<td class="center">0.00255</td>
+		</tr>
+		
+		<tr class="gradeC">
+			<td>RIG-I-like receptor signaling pathway</td>
+			<td>Kegg Pathway</td>
+			<td class="center">0.00131</td>
+			<td class="center">C0.0042</td>
+		</tr>
+		<tr class="gradeA">
+			<td>Establishment of localization</td>
+			<td>Go Biological Process</td>
+			<td class="center">0.08876</td>
+			<td class="center">0.07431</td>
+		</tr>
+		<tr class="gradeX">
+			<td>Single-organism process</td>
+			<td>Go Biological Process</td>
+			<td class="center">0.04241</td>
+			<td class="center">0.01411</td>
+		</tr>
+		<tr class="gradeX">
+			<td>Complement and coagulation cascades</td>
+			<td>Kegg Pathway</td>
+			<td class="center">0.00134</td>
+			<td class="center">0.03024</td>
+		</tr>
+		<tr class="gradeX">
+			<td>Natural killer cell mediated cytotoxicity</td>
+			<td>Go Biological Process</td>
+			<td class="center">0.00131</td>
+			<td class="center">0.00141</td>
+		</tr>
+		<tr class="gradeX">
+			<td>T cell mediated cytotoxicity</td>
+			<td>Go Biological Process</td>
+			<td class="center">0.00231</td>
+			<td class="center">0.00131</td>
+		</tr>
+		<tr class="gradeC">
+			<td>AKT Signaling Pathway</td>
+			<td>Biocarta</td>
+			<td class="center">0.00214</td>
+			<td class="center">0.00411</td>
+		</tr>
+		<tr class="gradeC">
+			<td>Cardiac muscle contraction</td>
+			<td>Kegg Pathway</td>
+			<td class="center">0.00414</td>
+			<td class="center">0.00402</td>
+		</tr>
+		<tr class="gradeC">
+			<td>Caspase Cascade in Apoptosis</td>
+			<td>Biocarta</td>
+			<td class="center">0.23111</td>
+			<td class="center">0.23141</td>
+		</tr>
+		<tr class="gradeU">
+			<td>Mitochondrial Permeability Transition Pore Complex</td>
+			<td>Biocarta</td>
+			<td class="center">0.00012</td>
+			<td class="center">0.00014</td>
+		</tr>
+	</tbody>
+</table>
+
+<hr>
+
+<footer>
+	<p>&copy; 2013 tranSMART Consortium. All rights reserved.</p>
+</footer>
+
+</div>
+
+
+
+
+
+

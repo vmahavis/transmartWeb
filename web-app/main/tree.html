@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <meta name="robots" content="noindex,follow">
+    <script src="../js/jquery.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui.custom.js" type="text/javascript"></script>
+    <script src="../js/jquery.cookie.js" type="text/javascript"></script>
+
+    <link href="../js/dynatree/src/skin/ui.dynatree.css" rel="stylesheet" type="text/css">
+    <script src="../js/dynatree/dist/jquery.dynatree-1.2.4.js" type="text/javascript"></script>
+    <script src="../js/dynatree/dist/sample.js" type="text/javascript"></script>
+    <title>Dynatree - Example Browser</title>
+
+    <style type="text/css">
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: smaller;
+            background-image: url("nav_bg.png");
+            background-repeat: repeat-x;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div#tree {
+            position: absolute;
+            height: 95%;
+            width: 95%;
+            padding: 5px;
+            margin-right: 16px;
+        }
+        ul.dynatree-container {
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+        }
+        ul.dynatree-container a {
+            color: #000;
+            border: 1px solid transparent;
+            background-color: transparent;
+        }
+        ul.dynatree-container a:hover {
+            background-color: transparent;
+        }
+        ul.dynatree-container a:focus, span.dynatree-focused a:link {
+            background-color: gray;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function(){
+            // --- Initialize sample trees
+            $("#tree").dynatree({
+                autoFocus: true,
+//			persist: true,
+                minExpandLevel: 2,
+                onFocus: function(node) {
+                    // Auto-activate focused node after 1 second
+                    if(node.data.href){
+                        node.scheduleAction("activate", 1000);
+                    }
+                },
+                onBlur: function(node) {
+                    node.scheduleAction("cancel");
+                },
+                onActivate: function(node){
+                    if(node.data.href){
+                        window.open(node.data.href, node.data.target);
+                    }
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="tree">
+    <ul>
+        <li class='folder'>Public Studies
+            <ul><li class='folder'>Breast_Cancer_Sorlie_GSE4382<ul><li class='folder'>Biomarker Data<ul><li class='folder'>Gene Expression<ul><li class='folder'>Stanford cDNA microarrays<ul><li><a target='content' href=''>Breast</a></li></ul></ul><ul><li><a target='content' href=''>Stanford cDNA microarrays</a></li></ul></ul><ul><li><a target='content' href=''>Gene Expression</a></li></ul><li class='folder'>Sample Factors<ul><li class='folder'>TNM Category<ul><li class='folder'>M - Metastasis stages<ul><li><a target='content' href=''>M0</a></li><li><a target='content' href=''>M1</a></li><li><a target='content' href=''>Unknown</a></li></ul><li class='folder'>N - Node stages<ul><li><a target='content' href=''>Unknown</a></li><li><a target='content' href=''>N2</a></li><li><a target='content' href=''>N0</a></li><li><a target='content' href=''>N1</a></li></ul><li class='folder'>T - Tumor stages<ul><li><a target='content' href=''>Unknown</a></li><li><a target='content' href=''>T2</a></li><li><a target='content' href=''>T4</a></li><li><a target='content' href=''>T3</a></li><li><a target='content' href=''>T1</a></li></ul></ul><ul><li><a target='content' href=''>T - Tumor stages</a></li><li><a target='content' href=''>M - Metastasis stages</a></li><li><a target='content' href=''>N - Node stages</a></li></ul><li class='folder'>End Points<ul><li class='folder'>General clinical state finding (Survival Censor)<ul><li class='folder'>Alive<ul><li><a target='content' href=''>Alive</a></li><li><a target='content' href=''>Alive, Clinical disease or syndrome present</a></li></ul><li class='folder'>Dead<ul><li><a target='content' href=''>Cause of Death, Other</a></li><li><a target='content' href=''>Cause of Death, Clinical disease or syndrome present</a></li></ul></ul><ul><li><a target='content' href=''>Dead</a></li><li><a target='content' href=''>Alive</a></li></ul></ul><ul><li><a target='content' href=''>Survival time (Months)</a></li><li><a target='content' href=''>Recurrence-free survival time (Months)</a></li><li><a target='content' href=''>General clinical state finding (Survival Censor)</a></li></ul><li class='folder'>Oestrogen receptor assay<ul><li><a target='content' href=''>Positive</a></li><li><a target='content' href=''>Unknown</a></li><li><a target='content' href=''>Negative</a></li></ul><li class='folder'>Histology<ul><li class='folder'>Histological Type<ul><li><a target='content' href=''>Lobular Carcinoma</a></li><li><a target='content' href=''>Mucinous adenocarcinoma</a></li><li><a target='content' href=''>Fibroadenoma</a></li><li><a target='content' href=''>Unknown</a></li><li><a target='content' href=''>Infiltrating duct carcinoma</a></li><li><a target='content' href=''>Papillary neoplasm</a></li><li><a target='content' href=''>DCIS</a></li><li><a target='content' href=''>Breast Normal</a></li><li><a target='content' href=''>Pleomorphic carcinoma</a></li><li><a target='content' href=''>Anaplastic carcinoma</a></li></ul><li class='folder'>Histological Grades<ul><li><a target='content' href=''>Unknown</a></li><li><a target='content' href=''>Poorly Differentiated</a></li><li><a target='content' href=''>Moderately Differentiated</a></li><li><a target='content' href=''>Well Differentiated</a></li></ul></ul><ul><li><a target='content' href=''>Histological Grades</a></li><li><a target='content' href=''>Histological Type</a></li></ul><li class='folder'>Tumor Subtype<ul><li><a target='content' href=''>Luminal A</a></li><li><a target='content' href=''>Luminal B</a></li><li><a target='content' href=''>basal</a></li><li><a target='content' href=''>Normal</a></li><li><a target='content' href=''>ERBB and</a></li><li><a target='content' href=''>None</a></li></ul></ul><ul><li><a target='content' href=''>Histology</a></li><li><a target='content' href=''>TNM Category</a></li><li><a target='content' href=''>End Points</a></li><li><a target='content' href=''>Age at Diagnosis</a></li><li><a target='content' href=''>Tumor Subtype</a></li><li><a target='content' href=''>Oestrogen receptor assay</a></li></ul></ul><ul><li><a target='content' href=''>Biomarker Data</a></li><li><a target='content' href=''>Sample Factors</a></li>
+            </ul>
+            <li class='folder'>Acute_Physiologic_Hyperinsulinemia_Coletta_GSE9105<ul><li class='folder'>Samples and Timepoints<ul><li class='folder'>Vastus Lateralis Muscle<ul><li><a target='content' href=''>Baseline</a></li><li><a target='content' href=''>240 Minutes after start of Insulin infusion</a></li><li><a target='content' href=''>030 Minutes after start of Insulin infusion</a></li></ul></ul><ul><li><a target='content' href=''>Vastus Lateralis Muscle</a></li></ul><li class='folder'>Subjects<ul><li class='folder'>Demographics<ul><li class='folder'>Gender<ul><li><a target='content' href=''>Female</a></li><li><a target='content' href=''>Male</a></li></ul><li class='folder'>Race<ul><li><a target='content' href=''>Mexican American</a></li><li><a target='content' href=''>Caucasian</a></li></ul></ul><ul><li><a target='content' href=''>Race</a></li><li><a target='content' href=''>Gender</a></li></ul><li class='folder'>Medical History<ul><li class='folder'>Family History Diabetes Status<ul><li><a target='content' href=''>Negative</a></li></ul></ul><ul><li><a target='content' href=''>Family History Diabetes Status</a></li></ul></ul><ul><li><a target='content' href=''>Demographics</a></li><li><a target='content' href=''>Medical History</a></li></ul><li class='folder'>Biomarker Data<ul><li class='folder'>Gene Expression<ul><li class='folder'>Affymetrix Human Genome U133A Array<ul><li class='folder'>Vastus Lateralis Muscle<ul><li><a target='content' href=''>240 Minutes after Insulin infusion</a></li><li><a target='content' href=''>030 Minutes after Insulin infusion</a></li><li><a target='content' href=''>Baseline</a></li></ul></ul><ul><li><a target='content' href=''>Vastus Lateralis Muscle</a></li></ul></ul><ul><li><a target='content' href=''>Affymetrix Human Genome U133A Array</a></li></ul></ul><ul><li><a target='content' href=''>Gene Expression</a></li></ul></ul><ul><li><a target='content' href=''>Samples and Timepoints</a></li><li><a target='content' href=''>Subjects</a></li><li><a target='content' href=''>Biomarker Data</a></li></ul></ul><ul><li><a target='content' href=''>Acute_Physiologic_Hyperinsulinemia_Coletta_GSE9105</a></li></ul>
+
+
+    </ul>
+</div>
+</body>
+</html><html><body></body></html>
